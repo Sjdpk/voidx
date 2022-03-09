@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors_collectin.dart';
+import '../utils/colors_collection.dart';
 
 // ignore: must_be_immutable
 class DisplayTextFormField extends StatelessWidget {
@@ -16,6 +16,11 @@ class DisplayTextFormField extends StatelessWidget {
   final bool isEnabled;
   final double borderRadius;
 
+  final double leftpadding;
+  final double toppadding;
+  final double righpadding;
+  final double bottompadding;
+
   TextEditingController? textFieldController;
   String? Function(String?)? validateField;
   final Color bordersideColor;
@@ -25,7 +30,7 @@ class DisplayTextFormField extends StatelessWidget {
 
   DisplayTextFormField({
     Key? key,
-    this.height = 35,
+    this.height = 40,
     this.hintText = '',
     this.isSecure = false,
     this.isnumberKeyboard = false,
@@ -38,9 +43,13 @@ class DisplayTextFormField extends StatelessWidget {
     this.isEnabled = true,
     this.bordersideColor = ColorCollection.mainColor,
     this.errorbordersideColorideColor = ColorCollection.errorColor,
-    required this.validateField,
+    this.validateField,
     required this.textFieldController,
     this.hintStyle,
+    this.leftpadding = 0,
+    this.toppadding = 0,
+    this.righpadding = 0,
+    this.bottompadding = 0,
   }) : super(key: key);
 
   @override
@@ -61,11 +70,11 @@ class DisplayTextFormField extends StatelessWidget {
             ? TextInputType.number
             : TextInputType.emailAddress,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.only(
-            top: 10,
-            bottom: 0,
-            left: 28,
-            right: 10,
+          contentPadding: EdgeInsets.only(
+            top: toppadding,
+            bottom: bottompadding,
+            left: leftpadding,
+            right: righpadding,
           ),
           // errorStyle: const TextStyle(fontSize: 10),
           // errorMaxLines: 01,

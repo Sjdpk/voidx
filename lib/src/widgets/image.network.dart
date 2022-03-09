@@ -7,9 +7,10 @@ import 'circularprogress_indicator.dart';
 // @package flutter default
 class DisplayNetworkImage extends StatelessWidget {
   final String imageUrl;
-  final Widget customErrorWidget = const DisplayCirculatProgressIndicator();
+  final Widget customErrorWidget;
   const DisplayNetworkImage({
     required this.imageUrl,
+    this.customErrorWidget = const DisplayCirculatProgressIndicator(),
     Key? key,
   }) : super(key: key);
 
